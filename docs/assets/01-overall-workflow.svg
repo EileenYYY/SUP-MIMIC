@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="900" viewBox="0 0 1500 900" role="img" aria-labelledby="title desc">
+  <title id="title">SUP-MIMIC overall workflow</title>
+  <desc id="desc">Authorized MIMIC access flows through SQL extraction, feature processing, benchmark construction, local or approved API evaluation, aggregate reporting, and public release.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f5f8fc"/>
+      <stop offset="1" stop-color="#eef4f1"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#355c7d"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Arial, sans-serif; fill: #17324d; }
+      .subtitle { font: 400 17px Arial, sans-serif; fill: #526675; }
+      .head { font: 700 18px Arial, sans-serif; fill: #17324d; }
+      .body { font: 400 15px Arial, sans-serif; fill: #304554; }
+      .small { font: 400 13px Arial, sans-serif; fill: #607482; }
+      .step { stroke: #b7c7d3; stroke-width: 2; rx: 16; }
+      .arrow { stroke: #355c7d; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .guard { fill: #fff4dc; stroke: #d29a37; stroke-width: 2; rx: 14; }
+      .public { fill: #e8f5ee; stroke: #4d9a72; stroke-width: 2; rx: 16; }
+      .private { fill: #fff0f0; stroke: #c86b6b; stroke-width: 2; rx: 16; }
+    </style>
+  </defs>
+  <rect width="1500" height="900" fill="url(#bg)"/>
+  <text x="70" y="70" class="title">SUP-MIMIC：从授权数据到合规开源</text>
+  <text x="70" y="105" class="subtitle">公开的是方法和工具；真实 MIMIC 数据与患者级派生结果始终留在授权环境内</text>
+
+  <rect x="70" y="160" width="250" height="160" class="private"/>
+  <text x="95" y="198" class="head">1. 授权数据环境</text>
+  <text x="95" y="232" class="body">PhysioNet credentialing</text>
+  <text x="95" y="258" class="body">本地 PostgreSQL / MIMIC</text>
+  <text x="95" y="284" class="body">真实患者级数据</text>
+  <text x="95" y="306" class="small">不进入公开仓库</text>
+
+  <rect x="390" y="160" width="250" height="160" class="step" fill="#e8f0f8"/>
+  <text x="415" y="198" class="head">2. SQL 提取</text>
+  <text x="415" y="232" class="body">hospital / ICU / ED</text>
+  <text x="415" y="258" class="body">ECG / CXR / note</text>
+  <text x="415" y="284" class="body">按 subject / admission / stay</text>
+  <text x="415" y="306" class="small">只发布 SQL 模板</text>
+
+  <rect x="710" y="160" width="250" height="160" class="step" fill="#edf2fb"/>
+  <text x="735" y="198" class="head">3. 特征处理</text>
+  <text x="735" y="232" class="body">清洗、编码、缺失值</text>
+  <text x="735" y="258" class="body">首日特征与标签</text>
+  <text x="735" y="284" class="body">患者/住院级整理</text>
+  <text x="735" y="306" class="small">结果只留在本地</text>
+
+  <rect x="1030" y="160" width="400" height="160" class="step" fill="#f0edf9"/>
+  <text x="1055" y="198" class="head">4. SUP-MIMIC 构建</text>
+  <text x="1055" y="232" class="body">BA：基础诊断评估</text>
+  <text x="1055" y="258" class="body">DDT：标签不同、特征相近</text>
+  <text x="1055" y="284" class="body">DCT：标签相同、特征差异大</text>
+  <text x="1055" y="306" class="small">发布构建代码，不发布病例文件</text>
+
+  <path d="M320 240 H380" class="arrow"/>
+  <path d="M640 240 H700" class="arrow"/>
+  <path d="M960 240 H1020" class="arrow"/>
+
+  <rect x="180" y="430" width="330" height="170" class="step" fill="#eef7f7"/>
+  <text x="205" y="470" class="head">5A. 本地模型推理</text>
+  <text x="205" y="505" class="body">Hugging Face / GPU</text>
+  <text x="205" y="531" class="body">患者级 prompt 不出环境</text>
+  <text x="205" y="557" class="body">保存私有 JSONL</text>
+  <text x="205" y="583" class="small">本地结果保存在私有目录</text>
+
+  <rect x="585" y="430" width="330" height="170" class="guard"/>
+  <text x="610" y="470" class="head">5B. 外部 API（需额外审查）</text>
+  <text x="610" y="505" class="body">机构批准 + 服务条款允许</text>
+  <text x="610" y="531" class="body">零保留 / 等价控制</text>
+  <text x="610" y="557" class="body">不记录真实病例日志</text>
+  <text x="610" y="583" class="small">不满足则不要发送数据</text>
+
+  <rect x="990" y="430" width="330" height="170" class="private"/>
+  <text x="1015" y="470" class="head">6. 私有结果分析</text>
+  <text x="1015" y="505" class="body">准确率 / recall / calibration</text>
+  <text x="1015" y="531" class="body">DDT / DCT pair metrics</text>
+  <text x="1015" y="557" class="body">error attribution</text>
+  <text x="1015" y="583" class="small">患者级结果不公开</text>
+
+  <path d="M1230 320 V400 H345 V420" class="arrow"/>
+  <path d="M1230 320 V400 H750 V420" class="arrow"/>
+  <path d="M1230 320 V400 H1155 V420" class="arrow"/>
+
+  <rect x="250" y="710" width="1000" height="110" class="public"/>
+  <text x="285" y="752" class="head">7. 公开发布层</text>
+  <text x="285" y="783" class="body">代码 · SQL · 配置模板 · 合成样例 · 聚合指标 · 文档 · arXiv 源文件</text>
+  <text x="285" y="807" class="small">公开包不包含患者级结果、密钥或内部审计材料</text>
+
+  <path d="M345 610 V680 H500 V700" class="arrow"/>
+  <path d="M750 610 V700" class="arrow"/>
+  <path d="M1155 610 V680 H1000 V700" class="arrow"/>
+</svg>

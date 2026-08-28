@@ -1,0 +1,9 @@
+model_dir: "/path/to/local/model"
+root_dir: "outputs/sup_mimic_cases"
+save_dir: "outputs/local_llm_eval"
+max_new_tokens: 160
+do_sample: false
+temperature: 0.0
+top_p: 0.9
+repetition_penalty: 1.05
+auto_pick_gpu: true

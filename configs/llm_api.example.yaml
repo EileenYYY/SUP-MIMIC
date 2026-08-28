@@ -1,0 +1,10 @@
+base_url: "https://api.openai.com/v1/chat/completions"
+model: "gpt-4o-mini"
+api_key_env: "SUP_MIMIC_API_KEY"
+temperature: 0.0
+max_tokens: 600
+timeout_seconds: 90
+zero_data_retention_required: true
+notes:
+  - "Patient-level MIMIC data is sent to an API only when institutional approval and service terms allow it."
+  - "Restricted data uses local models or an endpoint with explicit zero-retention or equivalent controls."

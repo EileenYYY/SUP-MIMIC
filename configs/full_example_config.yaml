@@ -1,0 +1,172 @@
+database:
+  dsn: postgresql://USER@HOST:5432/mimiciv
+  schemas:
+    hosp: mimiciv_hosp
+    icu: mimiciv_icu
+    derived: mimiciv_derived
+    note: mimiciv_note
+    ed: mimiciv_ed
+
+paths:
+  sql_dir: sql
+  output_dir: outputs
+  raw_dir: outputs/raw
+  case_dir: outputs/cases
+  manifest_dir: outputs/manifests
+
+defaults:
+  # Runtime placeholders for authorized local runs.
+  subject_id: 0
+  hadm_id: 0
+  stay_id: 0
+
+jobs:
+  - name: patients
+    sql: sql/hospital/10_patients.sql
+    output: outputs/raw/patients.jsonl
+    format: jsonl
+    params:
+      subject_id: "{{subject_id}}"
+
+  - name: admissions
+    sql: sql/hospital/11_admissions.sql
+    output: outputs/raw/admissions.jsonl
+    format: jsonl
+    params:
+      subject_id: "{{subject_id}}"
+
+  - name: diagnoses
+    sql: sql/hospital/13_diagnoses.sql
+    output: outputs/raw/diagnoses.jsonl
+    format: jsonl
+    params:
+      hadm_id: "{{hadm_id}}"
+
+  - name: procedures
+    sql: sql/hospital/14_procedures.sql
+    output: outputs/raw/procedures.jsonl
+    format: jsonl
+    params:
+      hadm_id: "{{hadm_id}}"
+
+  - name: prescriptions
+    sql: sql/hospital/15_prescriptions.sql
+    output: outputs/raw/prescriptions.jsonl
+    format: jsonl
+    params:
+      hadm_id: "{{hadm_id}}"
+
+  - name: icustays
+    sql: sql/icu/20_icustays.sql
+    output: outputs/raw/icustays.jsonl
+    format: jsonl
+    params:
+      subject_id: "{{subject_id}}"
+
+  - name: first_day_vitals
+    sql: sql/icu/21_first_day_vitals.sql
+    output: outputs/raw/first_day_vitals.jsonl
+    format: jsonl
+    params:
+      stay_id: "{{stay_id}}"
+
+  - name: first_day_labs
+    sql: sql/icu/22_first_day_labs.sql
+    output: outputs/raw/first_day_labs.jsonl
+    format: jsonl
+    params:
+      stay_id: "{{stay_id}}"
+
+  - name: icu_inputevents
+    sql: sql/icu/23_inputevents.sql
+    output: outputs/raw/icu_inputevents.jsonl
+    format: jsonl
+    params:
+      stay_id: "{{stay_id}}"
+
+  - name: icu_outputevents
+    sql: sql/icu/24_outputevents.sql
+    output: outputs/raw/icu_outputevents.jsonl
+    format: jsonl
+    params:
+      stay_id: "{{stay_id}}"
+
+  - name: icu_procedureevents
+    sql: sql/icu/25_procedureevents.sql
+    output: outputs/raw/icu_procedureevents.jsonl
+    format: jsonl
+    params:
+      stay_id: "{{stay_id}}"
+
+  - name: icu_chartevents
+    sql: sql/icu/26_chartevents.sql
+    output: outputs/raw/icu_chartevents.jsonl
+    format: jsonl
+    params:
+      stay_id: "{{stay_id}}"
+
+  - name: icu_scores
+    sql: sql/icu/27_score_extracts.sql
+    output: outputs/raw/icu_scores.jsonl
+    format: jsonl
+    params:
+      stay_id: "{{stay_id}}"
+
+  - name: edstays
+    sql: sql/ed/10_edstays.sql
+    output: outputs/raw/edstays.jsonl
+    format: jsonl
+    params:
+      subject_id: "{{subject_id}}"
+
+  - name: triage
+    sql: sql/ed/11_triage.sql
+    output: outputs/raw/triage.jsonl
+    format: jsonl
+    params:
+      subject_id: "{{subject_id}}"
+
+  - name: ed_vitals
+    sql: sql/ed/12_vitalsign.sql
+    output: outputs/raw/ed_vitals.jsonl
+    format: jsonl
+    params:
+      subject_id: "{{subject_id}}"
+
+  - name: ed_medrecon
+    sql: sql/ed/13_medrecon.sql
+    output: outputs/raw/ed_medrecon.jsonl
+    format: jsonl
+    params:
+      subject_id: "{{subject_id}}"
+
+  - name: cxr
+    sql: sql/cxr/10_cxr_record_list.sql
+    output: outputs/raw/cxr.jsonl
+    format: jsonl
+    params:
+      subject_id: "{{subject_id}}"
+
+  - name: ecg
+    sql: sql/ecg/10_ecg_record_table.sql
+    output: outputs/raw/ecg.jsonl
+    format: jsonl
+    params:
+      subject_id: "{{subject_id}}"
+
+  - name: notes
+    sql: sql/note/30_note_events.sql
+    output: outputs/raw/notes.jsonl
+    format: jsonl
+    params:
+      hadm_id: "{{hadm_id}}"
+
+screening:
+  age_min: 18
+  require_icu: false
+  min_admissions: 1
+  excluded_admission_types:
+    - NEWBORN
+  required_outputs:
+    - patients
+    - admissions

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="860" viewBox="0 0 1500 860" role="img" aria-labelledby="title desc">
+  <title id="title">SUP-MIMIC open source boundary</title>
+  <desc id="desc">A two-column boundary separates publishable methods and artifacts from restricted data and secrets.</desc>
+  <defs>
+    <style>
+      .title { font: 700 34px Arial, sans-serif; fill: #17324d; }
+      .subtitle { font: 400 17px Arial, sans-serif; fill: #526675; }
+      .head { font: 700 21px Arial, sans-serif; }
+      .item { font: 400 16px Arial, sans-serif; fill: #304554; }
+      .note { font: 400 14px Arial, sans-serif; fill: #607482; }
+      .box { rx: 18; stroke-width: 2; }
+      .good { fill: #e8f5ee; stroke: #4d9a72; }
+      .bad { fill: #fff0f0; stroke: #c86b6b; }
+      .line { stroke: #c8d3da; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="1500" height="860" fill="#f5f8fc"/>
+  <text x="70" y="70" class="title">开源边界：公开方法，不公开受限数据</text>
+  <text x="70" y="105" class="subtitle">判断标准不是“有没有姓名”，而是是否能从材料重建或推断患者级信息</text>
+
+  <rect x="70" y="160" width="630" height="590" class="box good"/>
+  <rect x="800" y="160" width="630" height="590" class="box bad"/>
+  <text x="110" y="215" class="head" fill="#28734f">可以公开</text>
+  <text x="840" y="215" class="head" fill="#a34848">不要公开</text>
+  <line x1="70" y1="245" x2="700" y2="245" class="line"/>
+  <line x1="800" y1="245" x2="1430" y2="245" class="line"/>
+
+  <text x="110" y="285" class="item">✓ Python 源代码</text>
+  <text x="110" y="325" class="item">✓ SQL 查询模板</text>
+  <text x="110" y="365" class="item">✓ 配置模板与参数说明</text>
+  <text x="110" y="405" class="item">✓ 特征工程与统计分析代码</text>
+  <text x="110" y="445" class="item">✓ LLM prompt 模板</text>
+  <text x="110" y="485" class="item">✓ 本地模型/API 调用框架</text>
+  <text x="110" y="525" class="item">✓ 合成数据与 smoke test</text>
+  <text x="110" y="565" class="item">✓ 聚合指标和无病例图表</text>
+  <text x="110" y="605" class="item">✓ 复现手册、合规手册</text>
+  <text x="110" y="645" class="item">✓ arXiv 源文件和提交清单</text>
+  <text x="110" y="700" class="note">发布原则：别人能复现方法，但拿不到受限数据。</text>
+
+  <text x="840" y="285" class="item">✕ 原始 MIMIC 表和数据库 dump</text>
+  <text x="840" y="325" class="item">✕ 患者级 CSV / JSONL / Excel</text>
+  <text x="840" y="365" class="item">✕ 笔记、影像、ECG、CXR 记录</text>
+  <text x="840" y="405" class="item">✕ 真实 subject/hadm/stay/dicom ID</text>
+  <text x="840" y="445" class="item">✕ 患者级 prompt 与模型回答</text>
+  <text x="840" y="485" class="item">✕ 由 MIMIC 直接导出的派生表</text>
+  <text x="840" y="525" class="item">✕ API key、数据库密码、DSN</text>
+  <text x="840" y="565" class="item">✕ 第三方模型权重</text>
+  <text x="840" y="605" class="item">✕ 包含病例细节的截图和附录</text>
+  <text x="840" y="700" class="note">即使去掉姓名，密集临床特征仍可能属于受限派生数据。</text>
+</svg>
