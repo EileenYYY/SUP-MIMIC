@@ -1,9 +1,0 @@
-cff-version: 1.2.0
-message: "If you use SUP-MIMIC, please cite the paper and this software release."
-title: "SUP-MIMIC: A Multi-Task Clinical Diagnosis Benchmark for Evaluating LLMs' Robustness to Contradictory Evidence"
-authors:
-  - family-names: "SUP-MIMIC Contributors"
-version: "0.1.0"
-date-released: "2026-08-28"
-license: "MIT"
-repository-code: "https://github.com/EileenYYY/SUP-MIMIC"
