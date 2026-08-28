@@ -1,5 +1,0 @@
-case_id,pair_id,diseased,task,distance,gender,admission_age,sofa,sapsii,gcs,sirs,heart_rate_avg,resp_rate_avg,spo2_avg,wbc_max,lactate_max,creatinine_max,bun_max,sepsis,aki,chronic_pulmonary_disease,congestive_heart_failure
-case_syn_c01,DCT_001,1,DCT,3.42,M,68,9,45,13,4,112,24,93,18.2,3.4,1.8,35,1,1,0,1
-case_syn_c02,DCT_001,1,DCT,3.42,M,77,8,44,13,3,108,23,94,16.9,2.7,1.7,33,1,0,1,1
-case_syn_c03,DCT_002,1,DCT,4.18,F,74,11,52,10,3,118,27,91,21.5,4.1,2.2,48,1,1,1,0
-case_syn_c04,DCT_002,1,DCT,4.18,M,63,10,49,12,4,121,29,90,19.6,5.2,2.6,54,1,1,1,1

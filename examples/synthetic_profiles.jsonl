@@ -1,5 +1,0 @@
-{"subject_id":1,"patient":{"gender":"M","anchor_age":65},"admissions_total":2,"icu_stays":[{"stay_id":10}],"diagnoses":[{"icd_code":"I10"}],"first_day_labs":{"creatinine_max":1.2,"sodium_max":140},"first_day_vitals":{"heart_rate_mean":86},"label":0}
-{"subject_id":2,"patient":{"gender":"F","anchor_age":78},"admissions_total":3,"icu_stays":[{"stay_id":20}],"diagnoses":[{"icd_code":"A419"},{"icd_code":"N179"}],"first_day_labs":{"creatinine_max":2.1,"sodium_max":132},"first_day_vitals":{"heart_rate_mean":112},"label":1}
-{"subject_id":3,"patient":{"gender":"M","anchor_age":59},"admissions_total":1,"icu_stays":[{"stay_id":30}],"diagnoses":[{"icd_code":"J189"}],"first_day_labs":{"creatinine_max":0.9,"sodium_max":138},"first_day_vitals":{"heart_rate_mean":74},"label":0}
-{"subject_id":4,"patient":{"gender":"F","anchor_age":84},"admissions_total":5,"icu_stays":[{"stay_id":40}],"diagnoses":[{"icd_code":"I509"},{"icd_code":"R570"}],"first_day_labs":{"creatinine_max":1.8,"sodium_max":130},"first_day_vitals":{"heart_rate_mean":121},"label":1}
-
