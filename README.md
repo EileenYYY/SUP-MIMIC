@@ -243,17 +243,16 @@ Please read full statement in [docs/compliance.md](docs/compliance.md) and [docs
 If you utilize this code repository in your research, please cite this code artifact:
 
 ```
-@misc{supmimic_code,
-  title = {SUP‑MIMIC: Reproducibility Kit for Pairwise Clinical Diagnosis Robustness Benchmark},
-  author = {SUP‑MIMIC Contributors},
-  year = {2026},
-  howpublished = {GitHub repository},
-  url = {https://github.com/EileenYYY/SUP-MIMIC}
+@misc{yu2026supmimic,
+  title={SUP-MIMIC: A Multi-Task Clinical Diagnosis Benchmark for Evaluating LLMs' Robustness to Contradictory Evidence},
+  author={Yu, Yi and Wang, Bo and Feng, Chong and Shi, Ge and Liu, Xia and Yang, Ziyi and Shi, Xuewen},
+  year={2026},
+  eprint={2608.29582},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2608.29582}
 }
 ```
-
-> 
-> Once the manuscript is officially published (arXiv / journal), replace this bibtex entry with full paper citation.
 
 ## License
 
